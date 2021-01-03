@@ -1,0 +1,42 @@
+    {
+        "atelier": [
+            {
+                "img": "atelier1.jpg",
+                "title": "Strelitzia step by step",
+                "subtitle": "From sketch to sculpture",
+                "description": "Strelitzia flowers stand out in both expressive form ànd expressive colour. Having such a spiky..."
+            },
+            {
+                "img": "atelier2.gif",
+                "title": "How a massive Lupine Tower budded in the garden of an art collector",
+                "subtitle": "Welcome to Antwerp",
+                "description": "After numerous sketches and studies with paint in the studio, after shaping the flower calyxes,..."
+            },
+            {
+                "img": "atelier3.gif",
+                "title": "The Lupine Studies, by Arne Quinze",
+                "subtitle": "The creative process of imaging a sculpture",
+                "description": "See how Arne Quinze's sculpture comes to life in his studio after many studies and versions. This..."
+            },
+            {
+                "img": "atelier4.jpg",
+                "title": "How to paint a massive Lupine Tower",
+                "subtitle": "A sculpture for a private garden in Antwerp",
+                "description": "This massive Lupine Tower sculpture is about to bud from the Antwerp soil. After finishing its.."
+            },
+            {
+                "img": "atelier5.jpg",
+                "title": "Creating a Lupine for a collector's garden",
+                "subtitle": "Chroma Lupine sculpture",
+                "description": "A 6m tall sculpture will soon overlook the garden of this collector..."
+            },
+            {
+                "img": "atelier6.png",
+                "title": "Visiting Frieze Sculpture",
+                "subtitle": "Regent's Park transformed into an open air museum",
+                "description": "Curator Clare Lilley (Director of Programme, Yorkshire Sculpture Park), who has been closely..."
+            }
+        
+
+        ]
+    }
