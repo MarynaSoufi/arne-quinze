@@ -5,12 +5,15 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
             this.cacheElements();
             this.fetchAtelierLocalData();
             this.fetchArtData();
+            this.fetchPressLocalData();
             
         },
         cacheElements(){
             this.atelierList = document.querySelector('.atelier-js');
             this.atelierPage = document.querySelector('.atelier_page-js');
             this.artList = document.querySelector('.art-js');
+            this.pressRelizeList = document.querySelector('.release-js');
+            this.thePressList = document.querySelector('.the-press-js');
 
         },
         async fetchAtelierLocalData() {
@@ -34,6 +37,17 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
                 console.error(error);
             } 
         },
+        async fetchPressLocalData() {
+            try {
+                const response = await fetch("../../app/data/press.json");
+                const jsonData = await response.json();
+                console.log(jsonData);
+                this.updatePressLists(jsonData);
+            }catch(error) {
+                console.error(error);
+            } 
+        },
+
         updateAtelierList(jsonData) {
             const data = jsonData.atelier;
             const arr = [];
@@ -76,9 +90,35 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
                 });
                 this.artList.innerHTML = str;
             }
-          
+        },
+        updatePressLists(jsonData) {
+            data = jsonData.press;
+            console.log(data);
+            let strRelize = "";
+            let str = "";
+            const arrRelize = [];
+            const arr = [];
+            if(this.pressRelizeList || this.thePressList) {
+                data.forEach((e) => {
+                    if(e.isRelize == true) {
+                        arrRelize.push(e);
+                    }else {
+                        arr.push(e);
+                    }
+                });
+                arrRelize.forEach((e) => {
+                    strRelize += `<li><a href="my-secret-garden-valencia/index.html"><img src="../static/img/${e.img}" loading="lazy"></a><h3>${e.subtitle}</h3><h2>${e.title}</h2><p>${e.description}</p><a class="more__press" href="my-secret-garden-valencia/index.html">${e.link}</a></li>`;
+                });
+                this.pressRelizeList.innerHTML = strRelize;
+                arr.forEach((e) => {
+                    str += `<li><a href="my-secret-garden-valencia/index.html"><img src="../static/img/${e.img}" loading="lazy"></a><h3>${e.subtitle}</h3><h2>${e.title}</h2><p>${e.description}</p><a class="more__press" href="my-secret-garden-valencia/index.html">${e.link}</a></li>`;
+                });
+                this.thePressList.innerHTML = str;
 
+            }    
+            
         }
+      
        
     };
     app.init();

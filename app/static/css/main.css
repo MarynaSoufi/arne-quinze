@@ -625,8 +625,114 @@ footer {
  .mons-bottom {
      margin-bottom: 8rem;
  }
+ .press div {
+     margin-bottom: 8rem;
+ }
+ .press h1 {
+    color: var( --general-text-color);
+    font-size: 2.1rem;
+    font-family: "Moderat";
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+    margin-bottom: 8rem;
+}
+@media (min-width: 64rem) {
+    .press h1 {
+        font-size: 2.625rem;
+    }
+}
+.press__link-wrapper {
+    position: relative;
+}
 
+.more__press {
+    font-size: 1rem;
+    font-family: 'Moderat Light';
+    border-bottom: 2px solid #000;
+    color: #000;
+    font-family: 'Moderat';
+    font-weight: 400;
+    transition: all .2s ease-in-out;
+}
+.more__press:hover {
+    color: var(--a-hover-color);
+    border-color: var(--a-hover-color);
+}
+@media (min-width: 64rem) {
+    .art__view-press {
+        transform: rotate(-90deg);
+        display: inline-block;
+        position: absolute;
+        left: -11rem;
+        top: 13rem;
+        text-align: center;
+    }
+}
+@media (min-width: 84.375rem) {
+    .art__view-press {
+        left: -15rem;
+    }
+}
+.left {
+    left: -3rem;
+}
+.press h2 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-family: 'Moderat';
+    font-weight: 400;
+}
 
+.press ul {
+    margin-top: 2rem;
+}
+@media (min-width: 47.9375rem) {
+    .press ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+.press ul h3 {
+    color: var(--h3-color);
+    font-size: 1.125rem;
+    font-family: 'Moderat';
+    font-weight: 400;
+    margin: 0;
+    margin-top: 1.5rem;
+}
+.press ul h2 {
+    color: #000;
+    font-size: 1.75rem;
+    font-family: 'Moderat';
+    font-weight: 400;
+    margin: 0;
+}
+.press ul p {
+    color: #000;
+    line-height: 1.5;
+    font-family: 'Moderat';
+    font-weight: 300;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+.press ul li{
+    margin-bottom: 4rem;
+}
+@media (min-width: 47.9375rem) {
+    .press ul li {
+        width: 30%;
+    }
+}
+.press__left {
+    left: -10rem;
+}
+@media (min-width: 84.375rem) {
+    .press__left {
+        left: -14rem;
+    }
+}
 
 
 

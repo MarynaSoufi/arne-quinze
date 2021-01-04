@@ -1,0 +1,54 @@
+{
+    "press": [
+        {
+            "img": "press1.jpg",
+            "title": "Frieze — London",
+            "subtitle": "Arne Quinze builds Lupine Tower for Frieze Sculpture, Regent's Park",
+            "description": "This year, Frieze Sculpture returns to The Regent’s Park from 5 – 18 October, featuring 12..",
+            "link": "Open press release",
+            "isRelize": true
+        },
+        {
+            "img": "press2.jpg",
+            "title": "The Beautiful Dreamer — Paris",
+            "subtitle": "The first permanent public art sculpture by Arne Quinze in France",
+            "description": "Arne Quinze continues his journey to reshape our cities into more human environments with this...",
+            "link": "Open press release",
+            "isRelize": true
+        },
+        {
+            "img": "press3.jpg",
+            "title": "My secret Garden — Valencia",
+            "subtitle": "Arne Quinze press release",
+            "description": "“My Secret Garden Valencia” presents a series of six public sculptures that will enter into...",
+            "link": "Open press release",
+            "isRelize": true
+        },
+        {
+            "img": "press4.jpg",
+            "title": "Financial Times about Frieze Sculpture",
+            "subtitle": "Frieze Sculpture Park opens its doors to nature",
+            "description": "An upbeat free-to-wander exhibition combines playfulness with serious concerns of contemporary...",
+            "link": "download article",
+            "isRelize": false
+        },
+        {
+            "img": "press5.jpg",
+            "title": "My Secret Garden, Valencia — Extended",
+            "subtitle": "Visit Arne Quinze's Secret Garden until the 1st of March",
+            "description": "Since February 2019, the open-air exhibition of Arne Quinze already attracted 3 million visitors!..",
+            "link": "visit website",
+            "isRelize": false
+        },
+        {
+            "img": "press6.jpg",
+            "title": "DJ Lefto in our studio",
+            "subtitle": "An inspirational tour with Belgian most famous hip hop DJ",
+            "description": "In this RTBF series, Hadja Lahbib follows Lefto visiting some of his friends artists and...",
+            "link": "visit website",
+            "isRelize": false
+        }
+    
+
+    ]
+}
