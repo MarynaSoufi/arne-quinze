@@ -71,6 +71,19 @@ ul {
 img {
     width: 100%;
 }
+.is-selected {
+    color: var(--a-hover-color);
+    text-decoration: underline;
+}
+.is-selected:hover {
+    text-decoration: none;
+}
+.blue {
+    transition: all .2s ease-in-out;
+}
+/* .blue:hover {
+    fill: var(--a-hover-color);
+} */
 /*HEADER*/
 header {
     display: flex;
@@ -121,8 +134,10 @@ footer {
 .footer__social ul > * {
     width: 50%;
     margin-bottom: 1rem;
-    
-    
+    transition: all .2s ease-in-out;
+}
+.footer__social ul > *:hover .footer__social h5 {
+    color: var(--a-hover-color);
 }
 
 @media(min-width: 48rem) {
@@ -138,11 +153,22 @@ footer {
     color: var(--general-text-color);
     font-size: 0.875rem;
     margin-top: .5rem;
+    transition: all .2s ease-in-out;
 }
+
 .footer__social a {
     display: flex;
     flex-direction: column;
     align-items: center; 
+    transition: all .2s ease-in-out;
+}
+.footer__social a:hover .blue{
+    /* color: var(--a-hover-color); */
+    fill: var(--a-hover-color);
+}
+.footer__social a:hover .color__blue{
+    /* color: var(--a-hover-color); */
+    color: var(--a-hover-color);
 }
 .footer__bottom h2 {
     font-size: 1.75rem;
@@ -733,9 +759,141 @@ footer {
         left: -14rem;
     }
 }
+.back-to {
+    color: #000;
+    font-weight: 400;
+    font-size: 1.3125rem;
+    display: block;
+    text-align: right;
+    transition: all .2s ease-in-out;
+}
+.back-to:hover {
+    color: var(--a-hover-color);
+    text-decoration: underline;
+}
+@media (min-width: 47.9375rem) {
+    .valencia__wrapper {
+        width: 65%;
+    }
+}
+.valencia h3 {
+    color: var(--h3-color);
+    font-size: 1.125rem;
+    font-family: "Moderat";
+    font-weight: 400;
+    margin: 0;
+}
+.valencia h1 {
+    color: var(--general-text-color);
+    font-size: 2.1rem;
+    font-family: "Moderat";
+    font-weight: 400;
+    margin: 0;
+}
+@media (min-width: 64rem) {
+    .valencia h1 {
+        font-size: 2.625rem;
+    }
+}
+.valencia h2 {
+    font-weight: 600;
+    font-size: 1.3125rem;
+}
+.valencia p {
+    font-size: 1.3125rem;
+}
+.valencia ul {
+    padding-left: 1rem;
+}
+.valencia li {
+    list-style-type: disc;
+    font-size: 1.3125rem;
+}
+.valencia__logo {
+    font-weight: 600;
+}
+.valencia_contact {
+    padding: 0 !important;
+}
+.valencia_contact li {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+.valencia_contact li a {
+    color: var(--general-text-color);
+    transition: all .2s ease-in-out;
+}
+.valencia_contact li a:hover {
+    color: var(--a-hover-color);
+    text-decoration: underline;
+}
+.documents svg {
+    width: 2rem;
+    height: 2rem;
+}
+.documents li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    padding: 0.75rem;
+    margin-bottom: 2rem;
+}
+@media (min-width: 47.9375rem) {
+    .documents ul {
+        display: flex;
+        justify-content: space-between;
+    }
+    .documents li {
+        width: 28%;
+    }
+}
+.documents li > * {
+    width: 100%;
+}
 
 
-
+.documents li a {
+    color: var(--general-text-color);
+    border-bottom: 1px solid transparent;
+}
+.documents li a:hover,
+.documents li a:active {
+    color: var(--a-hover-color);
+    border-bottom: 1px solid var(--a-hover-color);
+}
+.valencia__photo {
+    margin-bottom: 12rem;
+}
+.valencia__photo h2,
+.documents h2 {
+    font-size: 1.75rem;
+    font-family: "Moderat";
+    font-weight: 400;
+}
+.valencia__photo ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.valencia__photo ul > * {
+    width: 40%;
+    margin-bottom: 2rem;
+}
+@media (min-width: 47.9375rem) {
+    .valencia__photo ul > * {
+        width: 17%;
+    }
+}
+.valencia__photo a {
+    color: var(--general-text-color);
+    border-bottom: 2px solid var(--general-text-color);
+}
+.valencia__photo a:hover {
+    border-bottom: 2px solid var(--a-hover-color);
+    color: var(--a-hover-color);
+}
 
 
 
