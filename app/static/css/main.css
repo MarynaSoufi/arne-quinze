@@ -894,7 +894,96 @@ footer {
     border-bottom: 2px solid var(--a-hover-color);
     color: var(--a-hover-color);
 }
-
+.get h1{
+    margin: 0;
+    font-size: 2.1rem;
+    font-family: "Moderat";
+    font-weight: 400;
+}
+@media (min-width: 64rem) {
+    .get h1{
+        font-size: 2.625rem;
+    }
+}
+.get p {
+    font-size: 1.05rem;
+    line-height: 1.65rem;
+    margin: 0;
+}
+@media (min-width: 64rem) {
+    .get p{
+        font-size: 1.75rem;
+       width: 66%;
+       line-height: 2.75rem;
+       font-family: "Moderat Light";
+       font-weight: 300;
+    }
+}
+@media (min-width: 47.9375rem) {
+    .contact {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .contact > * {
+        width: 30%;
+    }
+}
+.contact form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 12rem;
+}
+.contact form > * {
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding: 0 .5rem;
+}
+.contact form div {
+    padding: 0;
+}
+.contact textarea {
+    height: 6rem;
+    border: 1px solid rgba(17,17,19,0.2);
+    padding: .5rem;
+    font-size: 1.2rem;
+}
+.input {
+    height: 3rem;
+    border: 1px solid rgba(17,17,19,0.1);
+}
+.send {
+    width: 4rem;
+    padding: 1rem .5rem;
+    color: #fff;
+    background-color: var(--a-hover-color);
+    border: none;
+}
+.contact  h3 {
+    font-size: 1.3125rem;
+}
+.contact li {
+    color: var(--h3-color);
+    font-size: 1rem;
+}
+.contact li a {
+    color: var(--general-text-color);
+    font-weight: 400;
+    font-family: "Moderat";
+    transition: all .2s ease-in-out;
+    border-bottom: 2px solid transparent;
+}
+.contact li a:hover {
+    color: var(--a-hover-color);
+    border-bottom: 2px solid var(--a-hover-color);
+}
+.margin__bottom {
+    margin-bottom: 1rem;
+}
+.form {
+    width: 14rem;
+}
 
 
 
