@@ -23,7 +23,8 @@
 
 /*GENERAL*/
 
-body {
+body,
+html {
     margin: 0;
     font-family: 'Moderat', 'Moderat Light', Helvetica,Arial,sans-serif;
     font-weight: normal;
@@ -31,9 +32,17 @@ body {
     color: var(--general-text-color);
     line-height: 1.5;
     font-weight: 300;
+    scroll-behavior: smooth;
 }
 * {
     box-sizing: border-box;
+}
+.center {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1.75rem;
+    font-family: "Moderat";
+    font-weight: 400;
 }
 .container {
     max-width: 100%;
@@ -140,6 +149,31 @@ img {
 }
 .blue {
     transition: all .2s ease-in-out;
+}
+.toTop__wrapper {
+    width: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 1rem 1.5rem;
+    text-align: center;
+    position: fixed;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    visibility: hidden;
+    /* box-shadow: 20px 2px 43px 36px rgba(255,255,255,0.62); */
+    /* box-shadow: 2px 1px 3px #777; */
+    /* box-shadow: inset 0px 0px 40px 40px #ffffff; */
+}
+.toTop__wrapper a {
+    font-size: 1.8rem;
+    border-bottom: 1px solid var(--general-text-color);
+    color: var(--general-text-color);
+    
+}
+.toTop__wrapper a:hover {
+    color: var(--a-hover-color);
+    border-bottom: 1px solid var(--a-hover-color);
 }
 /*HEADER*/
 header {
@@ -413,7 +447,7 @@ footer {
 @media (min-width: 64rem) {
     .film p,
     .more {
-        font-size: 1.75rem;
+        font-size: 1.3rem;
     }
 }
 .more {
@@ -600,7 +634,8 @@ footer {
     }
 }
 .mons__image,
-.bio__image {
+.bio__image,
+.container__left {
     max-width: 100%;
     padding-right: 1rem;
     padding-top: 2rem;
@@ -609,19 +644,22 @@ footer {
 }
 @media (min-width: 47.9375rem){
     .mons__image,
-    .bio__image {
+    .bio__image,
+    .container__left {
         padding-right: 4rem;
     }
 }
 @media (min-width: 64rem) {
     .mons__image,
-    .bio__image {
+    .bio__image,
+    .container__left {
         padding-right: 8rem;
     }
 }
 @media (min-width: 84.375rem) {
     .mons__image,
-    .bio__image {
+    .bio__image,
+    .container__left {
         padding-right: 12rem;
     }
 }
@@ -632,7 +670,8 @@ footer {
     font-weight: 400;
     margin: 0;
 }
-.mons__again h1 {
+.mons__again h1,
+.dialoge__text h1 {
     color: var( --general-text-color);
     font-size: 2.1rem;
     font-family: "Moderat";
@@ -641,7 +680,8 @@ footer {
     margin: 0;
 }
 @media (min-width: 64rem) {
-    .mons__again h1 {
+    .mons__again h1,
+    .dialoge__text h1 {
         font-size: 2.625rem;
     }
 }
@@ -972,7 +1012,7 @@ footer {
     margin: 0;
 }
 @media (min-width: 64rem) {
-    .get p{
+    .get p {
         font-size: 1.75rem;
        width: 66%;
        line-height: 2.75rem;
@@ -1058,7 +1098,8 @@ footer {
         font-size: 2.625rem;
     }
 }
-.bio__intro p {
+.bio__intro p,
+.dialoge__text-wrapper p {
     font-size: 1.3125rem;
     font-family: "Moderat Light";
 }
@@ -1190,6 +1231,195 @@ iframe {
     }
     .galery > * {
         width: 27%;
+    }
+}
+.dialoge__text h3 {
+    color: var(--h3-color);
+    font-size: 1.125rem;
+    font-family: "Moderat";
+    font-weight: 400;
+}
+.dialoge__text-extra p {
+    color: var(--h3-color);
+    font-size: 1rem;
+}
+@media (min-width: 47.9375rem) {
+    .dialoge__text-extra {
+        text-align: right;
+    }
+}
+@media (min-width: 47.9375rem) {
+    .dialoge__text-extra {
+        width: 40%;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+.dialoge__text-extra__wrapper {
+    width: 20rem;
+}
+@media (min-width: 47.9375rem) {
+    .dialoge__text-wrapper  {
+        width: 60%;
+    }
+}
+.dialoge__text-extra a {
+    border-bottom: 1px solid var(--general-text-color);
+    color: var(--general-text-color);
+    font-family: 'Moderat';
+    font-weight: 400;
+    transition: all .2s ease-in-out;
+    font-size: 1rem;
+}
+.dialoge__text-extra a:hover,
+.dialoge__text-extra a:active {
+
+    border-bottom: 1px solid var(--a-hover-color);
+    color: var(--a-hover-color);
+}
+@media (min-width: 47.9375rem) {
+    .dialoge__text-box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+.dialog__photo > * {
+    margin-bottom: 6rem;
+}
+@media (min-width: 47.9375rem) {
+    .dialog__photo > * {
+        width: 28%;
+    }
+}
+.dialog__photo {
+    margin-bottom: 12rem;
+}
+@media (min-width: 47.9375rem) {
+    .dialog__photo {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+.bottom {
+    margin-bottom: 8rem;
+}
+.show-all {
+    border-bottom: 1px solid var(--general-text-color);
+}
+@media (min-width: 47.9375rem) {
+    .filter {
+        display: flex;
+        justify-content: space-between;
+    }
+    .filter nav {
+        width: 66%;
+    }
+}
+.filter a {
+    color: var(--general-text-color);
+    font-size: 1.3125rem;
+}
+.filter ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+/* @media (min-width: 47.9375rem) {
+    .filter ul {
+        width: 60%;
+    }
+} */
+.filter a {
+    margin-right: 1.5rem;
+}
+.year a {
+    font-size: 0.875rem;
+    font-family: "Moderat Light";
+    font-weight: 600;
+}
+/* @media (min-width: 47.9375rem) {
+    .filter ul.year {
+        width: 57%;
+    }
+} */
+.filter div {
+    display: flex;
+    align-items: flex-end;
+    width: 10.4rem;
+ 
+}
+.filter div > * {
+    width: 50%;
+}
+.filter div a {
+    font-size: 0.875rem;
+    font-family: "Moderat Light";
+    font-weight: 600;
+    width: auto;
+}
+.works {
+    margin-bottom: 14rem;
+}
+.works__element h2 {
+    font-size: 1.75rem;
+    font-family: "Moderat";
+    font-weight: 400;
+}
+@media(min-width: 47.9375rem) {
+    .works__element {
+        margin-bottom: 8rem;
+    }
+    .works__element-year {
+        text-align: right;
+        width: 27.5%;
+    }
+    
+}
+.works__element h4 {
+    font-size: 1.125rem;
+    font-family: "Moderat";
+    font-weight: 400;
+    margin: 0;
+}
+.works__element h3 {
+    color: var(--h3-color);
+    font-size: 1.125rem;
+    font-family: "Moderat";
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+.works__images {
+    display: flex;
+    flex-wrap: wrap;
+}
+@media(min-width: 47.9375rem) {
+    .works__images {
+        width: 70%;
+    }
+}
+.works__images > * {
+    width: 17%;
+    margin-bottom: .5rem;
+    margin-right: 1rem;
+}
+@media(min-width: 47.9375rem) {
+    .works__images > * {
+        width: 14%;
+    }
+}
+@media(min-width: 47.9375rem) {
+    .works__item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+    .works__item > div {
+        width: 28%;
+        text-align: right;
+        margin-right: 4rem;
     }
 }
 
