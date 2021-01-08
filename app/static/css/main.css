@@ -156,20 +156,16 @@ img {
     padding: 1rem 1.5rem;
     text-align: center;
     position: fixed;
-    bottom: 4rem;
+    bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
     cursor: pointer;
     visibility: hidden;
-    /* box-shadow: 20px 2px 43px 36px rgba(255,255,255,0.62); */
-    /* box-shadow: 2px 1px 3px #777; */
-    /* box-shadow: inset 0px 0px 40px 40px #ffffff; */
 }
 .toTop__wrapper a {
     font-size: 1.8rem;
     border-bottom: 1px solid var(--general-text-color);
     color: var(--general-text-color);
-    
 }
 .toTop__wrapper a:hover {
     color: var(--a-hover-color);
@@ -283,11 +279,13 @@ footer {
 .footer__bottom form input {
     background: none;
     border: none;
+    outline: none;
 }
 .footer__bottom form input:nth-child(2) {
     color: var(--a-hover-color);
     display: none;
 }
+
 .footer__bottom-logo {
     margin-top: 5rem;
     display: flex;

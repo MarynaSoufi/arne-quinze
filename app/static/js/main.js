@@ -2,11 +2,13 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
 (()=> {
     const app = {
         init(){
-            this.scrollToTop();
             this.cacheElements();
+            this.scrollToTop();
+            this.footerSubmit();
             this.fetchAtelierLocalData();
             this.fetchArtData();
             this.fetchPressLocalData();
+            
             
             
         },
@@ -21,6 +23,9 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
             this.worksExample = document.querySelector('.works');
             this.worksYear = document.querySelector('.works__year');
             this.worksAbout = document.querySelectorAll('.works__about');
+            // this.footerInput = document.getElementById('email');
+            // this.footerBtn = document.getElementById('btn-submit');
+            
 
         },
         async fetchAtelierLocalData() {
@@ -102,7 +107,6 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
         },
         updatePressLists(jsonData) {
             data = jsonData.press;
-            console.log(data);
             let strRelize = "";
             let str = "";
             const arrRelize = [];
@@ -132,9 +136,11 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
             let allTags = [];
             let tags = [];
             const categories = []
-            let strCategory = `<li><a class="show-all" href="index.html">Show all</a></li>`;
-            let strYear = `<li><a class="show-all" href="index.html">Show all</a></li>`;
-            let strYearForWorksExample = "";
+            const url = new URLSearchParams(window.location.search);
+            const categoryUrl = url.get('category');
+            const yearUrl = url.get('year');
+            let strCategory = `<li><a class="category__link" href="index.html${yearUrl ? `?year=${yearUrl}`: ""}">Show all</a></li>`;
+            let strYear = `<li><a class="show-all" href="index.html${categoryUrl ? `?category=${categoryUrl}`: ""}">Show all</a></li>`;
             if(this.categoryNavigation || this.yearNavigation) {
                 jsonData.forEach((e) => {
                     if(!years.includes(e.year)) {
@@ -150,78 +156,82 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
                 });
                 categories.sort();
                 categories.forEach((e) => {
-                    strCategory += `<li><a href="index.html?category=${e}">${e}</a></li>`;
+                    strCategory += `<li><a class="category__link" href="index.html${yearUrl? `?category=${e}&year=${yearUrl}`: `?category=${e}`}">${e}</a></li>`;
                 })
-                console.log(categories);
                 this.categoryNavigation.innerHTML = strCategory;
-                
+                const categoryNavigationLink = document.querySelectorAll('.category__link');
+                categoryNavigationLink.forEach((e) => {
+                    console.log(e);
+                    if(categoryUrl === e.innerText) {
+                        e.classList.add('show-all');
+                    }else if(categoryUrl === null && e.innerText === "Show all") {
+                        e.classList.add('show-all');
+                    }
+                })
                 years.forEach((e) => {
-                    strYear += `<li><a href="#${e}">${e}</a></li>`;
-                    // strYearForWorksExample += `<div><h2 class="works__year">${e}</h2></div><div class="works__about" id="${e}"></div>`;
+                    strYear += `<li><a href="index.html${categoryUrl ? `?category=${categoryUrl}&year=${e}`: `?year=${e}`}">${e}</a></li>`;
                 });
                 this.yearNavigation.innerHTML = strYear;
-                // this.worksExample.innerHTML = strYearForWorksExample;
             }          
         },
         updateArtWorksExample(jsonData) {
             if(this.worksExample) {
                 const url = new URLSearchParams(window.location.search);
                 const categoryUrl = url.get('category');
+                const yearUrl = url.get('year');
                 const years = [];
-            jsonData.forEach((e) => {
-                if(!years.includes(e.year)) {
-                    years.push(e.year);
-                }
-            });
-            if(categoryUrl === null) {
-                const year = years.map((y) => {
-                    const dataElement = jsonData.map((d) => {
+                jsonData.forEach((e) => {
+                    if(!years.includes(e.year)) {
+                        years.push(e.year);
+                    }
+                });
+                const year = years.filter(y => {
+                    return yearUrl ? y === yearUrl : y;
+                }).map(p => {
+                    const dataElement = jsonData.filter((f) => {
+                        return f && f.year && f.tags && f.year === p &&(!categoryUrl || f.tags.includes(categoryUrl))
+                       
+                    }).map((m) => {
                         let location = "";
-                        if(d.tags && d.images && d.title && d.year === y) {
-                            if(d.location != null) {
-                                location = `— ${d.location}`;
-                            }else{
-                                location = "";
-                            }
-                            const tags = d.tags.map((t) => {
-                                const newTags = (t.replace(",", "||"));
-                                return `${newTags}`;
-                            }).join('');
-                            const images = d.images.map((i) => {
-                                return `<li><a href="in-dialogue-with-calatrava/index.html"><img src="../static/img/dataImg/${i}" loading="lazy"></a></li>`;
-                            }).join('');
-                            return `<li class="works__item"><div><h2>${d.title}</h2><h4>${d.subtitle}</h4><h3>${tags} ${location}</h3></div><ul class="works__images">${images}</ul> 
-                            </li>`
+                        if(m.location != null) {
+                            location = `— ${m.location}`;
+                        }else{
+                            location = "";
                         }
+                        const images = m.images.map((i) => {
+                            return `<li><a href="in-dialogue-with-calatrava/index.html"><img src="../static/img/dataImg/${i}" loading="lazy"></a></li>`;
+                        }).join('');
+                        return `<li class="works__item"><div><h2>${m.title}</h2><h4>${m.subtitle}</h4><h3>${m.tags} ${location}</h3></div><ul class="works__images">${images}</ul> 
+                        </li>`;
                     }).join('');
-                    return `<div class="works__element"><h2 class="works__element-year" id="${y}">${y}</h2><ul>${dataElement}</ul></div>`
+                    return `<div class="works__element"><h2 class="works__element-year" id="${p}">${p}</h2><ul>${dataElement}</ul></div>`
+                
+
                 }).join('');
                 this.worksExample.innerHTML = year;
-            }else if(categoryUrl) {
-                const year = years.map((y) => {
-                    const dataElement = jsonData.map((d) => {
-                        let location = "";
-                        if(d.tags && d.images && d.title && d.year === y && categoryUrl.includes(d.tags) || categoryUrl === d.tags) {
-                            if(d.location != null) {
-                                location = `— ${d.location}`;
-                            }else{
-                                location = "";
-                            }
-                            const tags = d.tags.map((t) => {
-                                const newTags = (t.replace(",", "||"));
-                                return `${newTags}`;
-                            }).join('');
-                            const images = d.images.map((i) => {
-                                return `<li><a href="in-dialogue-with-calatrava/index.html"><img src="../static/img/dataImg/${i}" loading="lazy"></a></li>`;
-                            }).join('');
-                            return `<li class="works__item"><div><h2>${d.title}</h2><h4>${d.subtitle}</h4><h3>${tags} ${location}</h3></div><ul class="works__images">${images}</ul> 
-                            </li>`
-                        }
-                    }).join('');
-                    return `<div class="works__element"><h2 class="works__element-year" id="${y}">${y}</h2><ul>${dataElement}</ul></div>`
-                }).join('');
-                this.worksExample.innerHTML = year;
-            }
+                    // const year = years.filter((y) => {
+                //     const dataElement = jsonData.map((d) => {
+                //         let location = "";
+                //         if(d.tags && d.images && d.title && d.year === y) {
+                //             if(d.location != null) {
+                //                 location = `— ${d.location}`;
+                //             }else{
+                //                 location = "";
+                //             }
+                //             const tags = d.tags.map((t) => {
+                //                 const newTags = (t.replace(",", "||"));
+                //                 return `${newTags}`;
+                //             }).join('');
+                //             const images = d.images.map((i) => {
+                //                 return `<li><a href="in-dialogue-with-calatrava/index.html"><img src="../static/img/dataImg/${i}" loading="lazy"></a></li>`;
+                //             }).join('');
+                //             return `<li class="works__item"><div><h2>${d.title}</h2><h4>${d.subtitle}</h4><h3>${tags} ${location}</h3></div><ul class="works__images">${images}</ul> 
+                //             </li>`
+                //         }
+                //     }).join('');
+                //     return `<div class="works__element"><h2 class="works__element-year" id="${y}">${y}</h2><ul>${dataElement}</ul></div>`
+                // }).join('');
+                // this.worksExample.innerHTML = year;
             }   
         },
         scrollToTop() {
@@ -241,6 +251,18 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
                 }
               });
         },
+        footerSubmit() {
+            const footerInput = document.getElementById('email');
+            const footerBtn = document.getElementById('btn-submit');
+            if(footerInput && footerBtn) {
+                footerInput.addEventListener("focus", function() {
+                    footerBtn.style.display = 'block';
+                });
+                footerInput.addEventListener("blur", function() {
+                   footerBtn.style.display = 'none';
+                })
+            }
+        }
     };
     app.init();
 })();
