@@ -209,29 +209,6 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
 
                 }).join('');
                 this.worksExample.innerHTML = year;
-                    // const year = years.filter((y) => {
-                //     const dataElement = jsonData.map((d) => {
-                //         let location = "";
-                //         if(d.tags && d.images && d.title && d.year === y) {
-                //             if(d.location != null) {
-                //                 location = `— ${d.location}`;
-                //             }else{
-                //                 location = "";
-                //             }
-                //             const tags = d.tags.map((t) => {
-                //                 const newTags = (t.replace(",", "||"));
-                //                 return `${newTags}`;
-                //             }).join('');
-                //             const images = d.images.map((i) => {
-                //                 return `<li><a href="in-dialogue-with-calatrava/index.html"><img src="../static/img/dataImg/${i}" loading="lazy"></a></li>`;
-                //             }).join('');
-                //             return `<li class="works__item"><div><h2>${d.title}</h2><h4>${d.subtitle}</h4><h3>${tags} ${location}</h3></div><ul class="works__images">${images}</ul> 
-                //             </li>`
-                //         }
-                //     }).join('');
-                //     return `<div class="works__element"><h2 class="works__element-year" id="${y}">${y}</h2><ul>${dataElement}</ul></div>`
-                // }).join('');
-                // this.worksExample.innerHTML = year;
             }   
         },
         scrollToTop() {
