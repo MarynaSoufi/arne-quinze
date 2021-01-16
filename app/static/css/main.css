@@ -33,9 +33,13 @@ html {
     line-height: 1.5;
     font-weight: 300;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 * {
     box-sizing: border-box;
+}
+article {
+    overflow-x: hidden;
 }
 .center {
     text-align: center;
@@ -410,17 +414,17 @@ footer {
 }
 @media (min-width: 47.9375rem) {
     .film__photo {
-        padding-left: 4rem
+        padding-left: 4rem;
     }
 }
 @media (min-width: 64rem) {
     .film__photo {
-        padding-left: 8rem
+        padding-left: 8rem;
     }
 }
 @media (min-width: 84.375rem) {
     .film__photo {
-        padding-left: 12rem
+        padding-left: 12rem;
     }
 } 
 .film h3 {
@@ -573,7 +577,7 @@ footer {
     }
 }
 @media (min-width: 84.375rem) {
-    .artist__info{
+    .artist__info {
         padding-right: 12rem;
     }
 }
@@ -1324,11 +1328,6 @@ iframe {
     flex-wrap: wrap;
     margin-bottom: 1rem;
 }
-/* @media (min-width: 47.9375rem) {
-    .filter ul {
-        width: 60%;
-    }
-} */
 .filter a {
     margin-right: 1.5rem;
 }
@@ -1337,11 +1336,6 @@ iframe {
     font-family: "Moderat Light";
     font-weight: 600;
 }
-/* @media (min-width: 47.9375rem) {
-    .filter ul.year {
-        width: 57%;
-    }
-} */
 .filter div {
     display: flex;
     align-items: flex-end;
@@ -1396,6 +1390,8 @@ iframe {
 @media(min-width: 47.9375rem) {
     .works__images {
         width: 70%;
+        display: flex;
+        align-items: center;
     }
 }
 .works__images > * {
@@ -1412,7 +1408,8 @@ iframe {
     .works__item {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
+        align-items: center;
     }
     .works__item > div {
         width: 28%;

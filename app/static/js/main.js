@@ -8,6 +8,7 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
             this.fetchAtelierLocalData();
             this.fetchArtData();
             this.fetchPressLocalData();
+            this.check();
             
             
             
@@ -23,9 +24,6 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
             this.worksExample = document.querySelector('.works');
             this.worksYear = document.querySelector('.works__year');
             this.worksAbout = document.querySelectorAll('.works__about');
-            // this.footerInput = document.getElementById('email');
-            // this.footerBtn = document.getElementById('btn-submit');
-            
 
         },
         async fetchAtelierLocalData() {
@@ -239,6 +237,17 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
                    footerBtn.style.display = 'none';
                 })
             }
+        },
+        check(){
+            const wid = document.documentElement.offsetWidth;
+            [].forEach.call(
+                document.querySelectorAll('*'),
+                function(e){
+                    if (e.offsetWidth > wid){
+                        console.log(e);
+                    }
+                }
+            );
         }
     };
     app.init();
