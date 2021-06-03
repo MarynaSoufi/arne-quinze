@@ -71,7 +71,7 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
                     }
                 });
                 arr.forEach((e) => {
-                    str += `<li><a href="atelier-studio/visiting-mons-again/index.html"><img src="static/img/${e.img}" loading="lazy"></a><h3>${e.subtitle}</h3><h2>${e.title}</h2><p>${e.description}</p><a class="more" href="atelier-studio/visiting-mons-again/index.html">Learn More</a></li>`;
+                    str += `<li><a href="atelier-studio/visiting-mons-again/index.html"><img src="app/static/img/${e.img}" loading="lazy"></a><h3>${e.subtitle}</h3><h2>${e.title}</h2><p>${e.description}</p><a class="more" href="atelier-studio/visiting-mons-again/index.html">Learn More</a></li>`;
                 });
                 this.atelierList.innerHTML = str;
             }
@@ -98,7 +98,7 @@ const artUrl = "https://www.pgm.gent/data/arnequinze/art.json";
                     
                 });
                 arr.forEach((e) => {
-                    str += `<li><a href="art-and-exhibitions/in-dialogue-with-calatrava/index.html"><img src="static/img/dataImg/${e.cover}" loading="lazy"></a><h3>${e.subtitle}</h3><h2>${e.title}</h2><p>${e.description}</p><a class="more" href="art-and-exhibitions/in-dialogue-with-calatrava/index.html">Learn More</a></li>`;
+                    str += `<li><a href="art-and-exhibitions/in-dialogue-with-calatrava/index.html"><img src="app/static/img/dataImg/${e.cover}" loading="lazy"></a><h3>${e.subtitle}</h3><h2>${e.title}</h2><p>${e.description}</p><a class="more" href="art-and-exhibitions/in-dialogue-with-calatrava/index.html">Learn More</a></li>`;
                 });
                 this.artList.innerHTML = str;
             }
